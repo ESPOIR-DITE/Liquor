@@ -1,15 +1,10 @@
 package company.com.service.Cashier.impl;
-
 import company.com.domain.cashierBuilderPack.Cashier;
-import company.com.factory.repository.CashierRepFac;
 import company.com.repository.casher.CahierInterface;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import company.com.repository.casher.impl.CashierRep;
 import company.com.service.Cashier.CashierServiceInt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,9 +35,9 @@ public class CashierServicer implements CashierServiceInt {
     @Override
     public Cashier update(Cashier cashierProduct) {
 
-        Cashier mycashier=read(cashierProduct.getId());
+        Cashier mycashier=read(cashierProduct.getEmail());
         if(mycashier!=null){
-            delete(cashierProduct.getId());
+            delete(cashierProduct.getEmail());
             return cahierInterface.save(cashierProduct);
         }return null;
     }
@@ -59,7 +54,7 @@ public class CashierServicer implements CashierServiceInt {
     }
 
     @Override
-    public List<Cashier> readAlll() {
+    public List<Cashier> readAll() {
         return cahierInterface.findAll();
     }
 }

@@ -10,6 +10,7 @@ import company.com.service.item.impl.impl.ClassicService;
 import company.com.service.item.impl.impl.ItemService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/classic")
@@ -62,7 +63,7 @@ public class ClassicController implements ControllerInt<Classic,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<Classic> readAll() {
+    public List<Classic> readAll() {
         return classicService.readAll();
     }
 }

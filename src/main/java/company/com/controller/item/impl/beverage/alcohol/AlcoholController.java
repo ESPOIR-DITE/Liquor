@@ -11,6 +11,7 @@ import company.com.service.item.impl.impl.AlcoholService;
 import company.com.service.item.impl.impl.BeverageService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * this class will help for bridging between nonAlcohol, alcohol and beverage.
@@ -45,8 +46,8 @@ public class AlcoholController implements ControllerInt<Alcohol,String> {
     }
     @GetMapping("/reads")
     @Override
-    public ArrayList<Alcohol> readAll() {
-        return alcoholService.readAlll();
+    public List<Alcohol> readAll() {
+        return alcoholService.readAll();
     }
     @GetMapping("/read")
     @Override

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class Cashier {
     @Id
-    private String id;
+    private String email;
     private String name;
     private String surName;
 
@@ -30,26 +30,26 @@ public class Cashier {
         this.surName = surName;
     }
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
     @Override
     public String toString() {
         return "  \n     Cashier\n   ------" +
                 "\n name:    " + name +
                 "\n surName: " + surName +
-                "\n id:      " + id;
+                "\n id:      " + email;
     }
     public static class Builder{
         private String name;
         private String surName;
-        private String id;
-        public Builder(String id){
-            this.id=id;
+        private String email;
+        public Builder(String email){
+            this.email=email;
         }
         public Builder buildName(String name){
             this.name=name;
@@ -61,7 +61,7 @@ public class Cashier {
         }
         public Cashier build(){
             Cashier cashierProduct=new Cashier();
-            cashierProduct.id=this.id;
+            cashierProduct.email=this.email;
             cashierProduct.name=this.name;
             cashierProduct.surName=this.surName;
             return cashierProduct;

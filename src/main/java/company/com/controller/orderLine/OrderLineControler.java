@@ -40,6 +40,6 @@ public class OrderLineControler implements ControllerInt<OrderLine,String> {
     @GetMapping("/reads")
     @Override
     public List<OrderLine> readAll() {
-        return orderLineService.readAlll();
+        return orderLineService.readAll();
     }
 }

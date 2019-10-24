@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import company.com.service.orderLine.impl.OrderLineService;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/orderTime")
 public class OrderTimingController implements ControllerInt<OrderTiming,String> {
@@ -37,7 +39,7 @@ public class OrderTimingController implements ControllerInt<OrderTiming,String> 
     }
     @GetMapping("/reads")
     @Override
-    public ArrayList<OrderTiming> readAll() {
-        return orderTimeService.readAlll();
+    public List<OrderTiming> readAll() {
+        return orderTimeService.readAll();
     }
 }

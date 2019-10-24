@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.classic.impl;
 
-import company.com.domain.item.impl.classic.impl.Ice;
-import company.com.repository.item.impl.classic.IceInt;
-
-import java.util.ArrayList;
-
-public class IceRep implements IceInt {
+public class IceRep{}/* implements IceInt {
 
     private static IceRep iceRep;
     private ArrayList<Ice> mydb= new ArrayList<>();
@@ -69,3 +64,4 @@ public static IceRep getIceRep(){
                 .orElse(null);
     }
 }
+*/

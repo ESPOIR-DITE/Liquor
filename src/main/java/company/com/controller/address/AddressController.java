@@ -20,6 +20,8 @@ public class AddressController implements ControllerInt<Address,String> {
     public String home(){
         return "home";
     }
+
+
     @PostMapping("/create")
     @Override
     public Address create(@RequestBody Address address) {
@@ -47,6 +49,6 @@ public class AddressController implements ControllerInt<Address,String> {
     @GetMapping("/reads")
     @Override
     public List<Address> readAll() {
-        return addressService.readAlll();
+        return addressService.readAll();
     }
 }

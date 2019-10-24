@@ -1,16 +1,18 @@
 package company.com.service.payment.customerPay.impl;
 
 import company.com.domain.customerPayment.CustomerPay;
-import company.com.factory.repository.CustomerPayRepFact;
-import company.com.repository.payment.customerPay.impl.CustomerPayRep;
+import company.com.repository.payment.customerPay.CustomerPayRepInt;
 import company.com.service.payment.customerPay.CustomerPayInt;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-@Component
+import java.util.List;
+import java.util.Optional;
+@Service
 public class CustomerPayService implements CustomerPayInt {
+    @Autowired
+    CustomerPayRepInt customerPayRepInt;
     private static CustomerPayService customerPayService;
-    private CustomerPayRep customerPayRep= CustomerPayRepFact.getCustPayRep();
 
     private CustomerPayService() {
     }
@@ -22,29 +24,36 @@ public class CustomerPayService implements CustomerPayInt {
 
     @Override
     public CustomerPay create(CustomerPay customerPay) {
-        return customerPayRep.create(customerPay);
+        return customerPayRepInt.save(customerPay);
     }
 
     @Override
     public CustomerPay update(CustomerPay customerPay) {
-        return customerPayRep.update(customerPay);
+        return customerPayRepInt.save(customerPay);
     }
 
     @Override
     public void delete(String id) {
-        customerPayRep.delete(id);
+        customerPayRepInt.deleteById(id);
     }
 
     @Override
     public CustomerPay read(String id) {
-        return customerPayRep.read(id);
+        Optional<CustomerPay> result=customerPayRepInt.findById(id);
+        return result.orElse(null);
     }
     public CustomerPay findOrder(String orderNumber){
-        return customerPayRep.findOrder(orderNumber);
+        List<CustomerPay>result=customerPayRepInt.findAll();
+        for(CustomerPay customerPay: result){
+            if(customerPay.getOrderNumber().equals(orderNumber)){
+                return customerPay;
+            }
+        }
+        return null;
     }
 
     @Override
-    public ArrayList<CustomerPay> readAlll() {
-        return customerPayRep.readAll();
+    public List<CustomerPay> readAll() {
+        return customerPayRepInt.findAll();
     }
 }

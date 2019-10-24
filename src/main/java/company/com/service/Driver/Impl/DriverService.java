@@ -1,16 +1,10 @@
 package company.com.service.Driver.Impl;
-
-
 import company.com.domain.driver.Driver;
-import company.com.factory.repository.DriverRepFact;
 import company.com.repository.drivers.DriverRepInt;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import company.com.repository.drivers.impl.DriverRep;
 import company.com.service.Driver.DriverServiceInt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,7 +56,7 @@ public class DriverService implements DriverServiceInt {
     }
 
     @Override
-    public List<Driver> readAlll() {
+    public List<Driver> readAll() {
         return driverRepInt.findAll();
     }
 }

@@ -3,18 +3,18 @@ package company.com.controller.item.impl.beverage.nonalcohol.impl;
 
 import company.com.controller.ControllerInt;
 import company.com.domain.item.impl.beverage.nonalcohol.impl.CoolDrink;
+import company.com.service.item.impl.beverage.nonalcohol.impl.CooldrinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import company.com.service.item.impl.beverage.nonalcohol.impl.CooledrinkService;
-
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/cooldrink")
 public class CoolController implements ControllerInt<CoolDrink,String> {
     @Autowired
-    CooledrinkService cooledrinkService;
+    CooldrinkService cooledrinkService;
 
     @PostMapping("/creat")
     @Override
@@ -42,7 +42,7 @@ public class CoolController implements ControllerInt<CoolDrink,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<CoolDrink> readAll() {
-        return null;
+    public List<CoolDrink> readAll() {
+        return cooledrinkService.readAll();
     }
 }

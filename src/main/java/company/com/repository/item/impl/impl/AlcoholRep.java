@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.impl;
 
-import company.com.domain.item.impl.beverage.alcohol.Alcohol;
-import company.com.repository.item.AlcoholInt;
-
-import java.util.ArrayList;
-
-public class AlcoholRep implements AlcoholInt {
+public class AlcoholRep{}/* implements AlcoholInt {
     private ArrayList<Alcohol>mydb=new ArrayList<>();
     private static AlcoholRep alcoholRep=null;
 
@@ -68,3 +63,4 @@ public class AlcoholRep implements AlcoholInt {
                 .orElse(null);
     }
 }
+*/

@@ -1,15 +1,11 @@
 package company.com.service.customerServ.impl;
 
 import company.com.domain.customerBuilder.Customer;
-import company.com.factory.repository.CustomerRepoFac;
 import company.com.repository.customer.CustomerRep;
-import company.com.repository.customer.impl.CustomerRepository;
 import company.com.service.customerServ.CustomerServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,7 +53,7 @@ public class CustomerService implements CustomerServiceInt {
     }
 
     @Override
-    public List<Customer> readAlll() {
+    public List<Customer> readAll() {
         return customerRep.findAll();
     }
 }

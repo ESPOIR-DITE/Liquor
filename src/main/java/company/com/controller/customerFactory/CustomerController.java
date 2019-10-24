@@ -1,11 +1,16 @@
 package company.com.controller.customerFactory;
 
-import company.com.domain.bridge.Customer_address;
+import company.com.domain.bridge.User_address;
 import company.com.domain.customerBuilder.Customer;
+import company.com.domain.genericClasses.G_User;
 import company.com.domain.users.Address;
+import company.com.domain.users.Login;
 import company.com.factory.domain.address.AddressFactory;
-import company.com.factory.domain.bridge.Customer_AddressFactory;
+import company.com.factory.domain.bridge.User_AddressFactory;
 import company.com.factory.domain.customerFactory.CustomerFactory;
+import company.com.factory.domain.user.LoginFactory;
+import company.com.service.user.impl.LoginService;
+import company.com.service.user.userAddress.impl.UserAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import company.com.service.address.Impl.AddressService;
@@ -22,25 +27,45 @@ public class CustomerController  {
     private CustomerService customerService;
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private LoginService loginService;
+    @Autowired
+    private UserAddressService userAddressService;
 
 
     @PostMapping("/create")
-    public Customer create(@RequestBody Customer_address ca) {
+    public Customer create(@RequestBody G_User ca) {
+        Customer customer=CustomerFactory.getCustomer(ca.getEmail(),ca.getName(),ca.getSurName(),ca.getDescription());
+        Customer resulta=customerService.create(customer);
+        String addressId=null;
+        if(resulta!=null){
 
-        if(ca!=null){
-            Customer cust= CustomerFactory.getCustomer(ca.getCustomer().getName(),ca.getCustomer().getSurName(),ca.getCustomer().getSurName());
-            Address ad= AddressFactory.getAddress(ca.getAddress().getEmailAddress(),ca.getAddress().getAddress(),ca.getAddress().getPhoner_Number());
-            return customerService.create(cust);
+            //creating Addess
+            if(!ca.getAddress().equals(null)&&!ca.getPhoner_Number().equals(null)){
+            Address ad= AddressFactory.getAddress(ca.getAddress(),ca.getPhoner_Number());
+            addressId=addressService.create(ad).getAddressId();
+            }
+
+            //creating User_Addess bridge table
+            if(!addressId.equals(null)){
+            User_address user_address= User_AddressFactory.getCustomerAddress(ca.getEmail(),addressId,ca.getDescription());
+            userAddressService.create(user_address);
+            }
+
+            //creating loging
+            if(!ca.getEmail().equals(null)||!ca.getPassword().equals(null)){
+            Login login= LoginFactory.getLogin(ca.getEmail(),ca.getPassword());
+            loginService.create(login);
+            }
+
+            return customer;
         }
         return null;
     }
 
     @GetMapping("/read")
-    public Customer_address read(@RequestParam(value = "id") String id) {
-        Customer cust=customerService.read(id);
-        Address ad=addressService.read(id);
-        Customer_address custAdd= Customer_AddressFactory.getCustomerAddress(cust,ad);
-        return custAdd ;
+    public Customer read(@RequestParam(value = "id") String id) {
+        return customerService.read(id);
     }
 
     @GetMapping("/delete")
@@ -50,16 +75,14 @@ public class CustomerController  {
     }
 
     @PostMapping("/update")
-    public Customer_address update(@RequestBody Customer_address customer) {
-        Customer cust=customerService.update(customer.getCustomer());
-        Address ad=addressService.update(customer.getAddress());
-        Customer_address custAdd= Customer_AddressFactory.getCustomerAddress(cust,ad);
-        return custAdd;
+    public Customer update(@RequestBody Customer customer) {
+        Customer cust=customerService.update(customer);
+        return cust;
     }
 
     @GetMapping("/reads")
     public List<Customer> readAll() {
-        return customerService.readAlll();
+        return customerService.readAll();
     }
     /** @Autowired
     private CustomerService customerService;

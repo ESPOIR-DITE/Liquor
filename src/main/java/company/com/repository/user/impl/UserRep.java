@@ -1,12 +1,7 @@
 package company.com.repository.user.impl;
 
 
-import company.com.domain.users.User;
-import company.com.repository.user.UserInt;
-
-import java.util.ArrayList;
-
-public class UserRep implements UserInt {
+public class UserRep{}/* implements UserInt {
     private static UserRep userRep=null;
     private ArrayList<User>mydb=new ArrayList<>();
 
@@ -67,3 +62,4 @@ public class UserRep implements UserInt {
                 .orElse(null);
     }
 }
+*/

@@ -53,7 +53,7 @@ public class OrderLineService implements OrderLineServiceInt {
     }
 
     @Override
-    public List<OrderLine> readAlll() {
+    public List<OrderLine> readAll() {
         return orderLineRep.findAll();
     }
 }

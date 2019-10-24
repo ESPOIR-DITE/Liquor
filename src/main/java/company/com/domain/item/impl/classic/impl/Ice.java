@@ -1,6 +1,13 @@
 package company.com.domain.item.impl.classic.impl;
 
+import com.sun.javafx.beans.IDProperty;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Ice {
+    @Id
     private String itemNumber;
     private String name;
     private String descrition;

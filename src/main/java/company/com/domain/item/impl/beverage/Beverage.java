@@ -1,6 +1,11 @@
 package company.com.domain.item.impl.beverage;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Beverage {
+    @Id
     private String bev_id;
     private String bevName;
     private String item_id;

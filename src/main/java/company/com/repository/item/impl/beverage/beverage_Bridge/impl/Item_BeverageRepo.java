@@ -1,12 +1,7 @@
 package company.com.repository.item.impl.beverage.beverage_Bridge.impl;
 
-import company.com.domain.item.impl.ItemBridge.Item_beverage;
-import company.com.factory.domain.item.itemBridge.Item_beverageFactory;
-import company.com.repository.item.impl.beverage.beverage_Bridge.Beverage_ItemInt;
 
-import java.util.ArrayList;
-
-public class Item_BeverageRepo implements Beverage_ItemInt {
+public class Item_BeverageRepo{}/* implements Beverage_ItemInt {
     public static Item_BeverageRepo item_beverageRepo;
     private ArrayList<Item_beverage>mydb=new ArrayList<>();
 
@@ -69,3 +64,4 @@ public class Item_BeverageRepo implements Beverage_ItemInt {
                 .orElse(null);
     }
 }
+*/

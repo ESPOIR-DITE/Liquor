@@ -64,7 +64,7 @@ public class OrderServices implements IOrder {
     }
 
     @Override
-    public List<Orders> readAlll() {
+    public List<Orders> readAll() {
         return orderRep.findAll();
     }
 }

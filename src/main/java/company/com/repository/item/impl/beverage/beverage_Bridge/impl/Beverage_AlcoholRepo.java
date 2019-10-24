@@ -7,7 +7,7 @@ import company.com.repository.item.impl.beverage.beverage_Bridge.Beverage_Alcoho
 import java.util.ArrayList;
 
 //a bridge class between beverage and all the Alcohole Item
-public class Beverage_AlcoholRepo implements Beverage_AlcoholInt {
+public class Beverage_AlcoholRepo{}/* implements Beverage_AlcoholInt {
     private static Beverage_AlcoholRepo beverage_alcoholRep;
     private ArrayList<Beverage_Alcohol>mydb =new ArrayList<>();
 
@@ -71,3 +71,4 @@ public class Beverage_AlcoholRepo implements Beverage_AlcoholInt {
                 .orElse(null);
     }
 }
+*/

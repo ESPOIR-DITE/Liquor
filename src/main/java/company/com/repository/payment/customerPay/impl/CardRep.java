@@ -1,11 +1,7 @@
 package company.com.repository.payment.customerPay.impl;
 
-import company.com.domain.customerPayment.impl.Card;
-import company.com.repository.payment.customerPay.CardInt;
 
-import java.util.ArrayList;
-
-public class CardRep implements CardInt {
+public class CardRep{}/* implements CardInt {
     private static CardRep cardRep=null;
     private ArrayList<Card>mydb=new ArrayList<>();
 
@@ -67,3 +63,4 @@ public class CardRep implements CardInt {
                 .orElse(null);
     }
 }
+*/

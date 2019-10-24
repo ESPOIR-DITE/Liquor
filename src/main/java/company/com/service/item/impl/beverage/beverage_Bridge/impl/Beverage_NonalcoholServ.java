@@ -1,15 +1,16 @@
 package company.com.service.item.impl.beverage.beverage_Bridge.impl;
 import company.com.domain.item.impl.beverage.beverage_Bridge.Beverage_NonAlcohol;
-import company.com.factory.repository.item.impl.beverage.beverage_Bridge.Beverage_NonalcolicRapFactory;
-import company.com.repository.item.impl.beverage.beverage_Bridge.impl.Beverage_NonalcoholRep;
+import company.com.repository.item.impl.beverage.beverage_Bridge.Beverage_NonalcoholRepInt;
 import company.com.service.item.impl.beverage.beverage_Bridge.Beverage_NonalcoholInt;
-import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-@Component
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
+@Service
 public class Beverage_NonalcoholServ implements Beverage_NonalcoholInt {
+    @Autowired
+    Beverage_NonalcoholRepInt bn;
     private static Beverage_NonalcoholServ beverage_nonalcoholServ;
-    private Beverage_NonalcoholRep BAR= Beverage_NonalcolicRapFactory.getBeverage();
 
     private Beverage_NonalcoholServ() {
     }
@@ -18,30 +19,27 @@ public class Beverage_NonalcoholServ implements Beverage_NonalcoholInt {
             beverage_nonalcoholServ=new Beverage_NonalcoholServ();
         } return beverage_nonalcoholServ;
     }
-
-
     @Override
     public Beverage_NonAlcohol create(Beverage_NonAlcohol beverage_nonAlcohol) {
-        return BAR.create(beverage_nonAlcohol);
+        return bn.save(beverage_nonAlcohol);
     }
-
     @Override
     public Beverage_NonAlcohol update(Beverage_NonAlcohol beverage_nonAlcohol) {
-        return BAR.update(beverage_nonAlcohol);
+        return bn.save(beverage_nonAlcohol);
     }
-
     @Override
     public void delete(String id) {
-        BAR.delete(id);
+        bn.deleteById(id);
     }
 
     @Override
-    public Beverage_NonAlcohol read(String id) {
-        return BAR.read(id);
+    public Beverage_NonAlcohol read(String id)
+    {
+        Optional<Beverage_NonAlcohol> result =bn.findById(id);
+        return result.orElse(null);
     }
-
     @Override
-    public ArrayList<Beverage_NonAlcohol> readAlll() {
-        return BAR.readAll();
+    public List<Beverage_NonAlcohol> readAll() {
+        return bn.findAll();
     }
 }

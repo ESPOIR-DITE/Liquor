@@ -6,13 +6,14 @@ import company.com.repository.address.AddressInt;
 import company.com.service.address.AddressServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class AddressService implements AddressServiceInt {
     private static AddressService addressService;
     // private AddressRep addressRep= AddressRepFactory.getAddress();
@@ -21,11 +22,9 @@ public class AddressService implements AddressServiceInt {
 
     private AddressService() {
     }
-
     public static AddressService getAddressService() {
         if (addressService == null) {
             addressService = new AddressService();
-
         }
         return addressService;
     }
@@ -53,7 +52,7 @@ public class AddressService implements AddressServiceInt {
     }
 
     @Override
-    public List<Address> readAlll() {
+    public List<Address> readAll() {
         return addressRep.findAll();
     }
 }

@@ -1,18 +1,16 @@
 package company.com.service.user.impl;
 
+
 import company.com.domain.users.Login;
-import company.com.factory.repository.LoginRepFactory;
 import company.com.repository.user.LoginRepInt;
-import company.com.repository.user.impl.LoginRep;
 import company.com.service.user.LoginServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class LoginService implements LoginServiceInt {
     @Autowired
     LoginRepInt longinRepInt;
@@ -46,12 +44,12 @@ public class LoginService implements LoginServiceInt {
     }
 
     @Override
-    public List<Login> readAlll() {
+    public List<Login> readAll() {
         return longinRepInt.findAll();
     }
 
     public Login myLogin(String email,String password){
-        List<Login>result=readAlll();
+        List<Login>result=readAll();
         for(Login login: result){
             if(login.getEmail().equals(email)&&login.getPassword().equals(password)){
                 return login;

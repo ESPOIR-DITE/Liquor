@@ -38,6 +38,6 @@ public class OrderController implements ControllerInt<Orders,String> {
     @GetMapping("/reads")
     @Override
     public List<Orders> readAll() {
-        return orderServices.readAlll();
+        return orderServices.readAll();
     }
 }

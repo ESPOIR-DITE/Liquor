@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.impl;
 
-import company.com.domain.item.Item;
-import company.com.repository.item.ItemInt;
-
-import java.util.ArrayList;
-
-public class ItemRep implements ItemInt {
+public class ItemRep{}/* implements ItemInt {
     private ArrayList<Item>mydb =new ArrayList<>();
     private static ItemRep itemRep=null;
 
@@ -74,3 +69,4 @@ public class ItemRep implements ItemInt {
                 .orElse(null);
     }
 }
+*/

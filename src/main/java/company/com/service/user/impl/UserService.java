@@ -1,16 +1,21 @@
 package company.com.service.user.impl;
 
-import company.com.domain.users.User;
-import company.com.factory.repository.UserRepFactory;
-import company.com.repository.user.impl.UserRep;
-import company.com.service.user.UserServiceInt;
-import org.springframework.stereotype.Component;
-import java.util.ArrayList;
 
-@Component
+import company.com.domain.users.User;
+import company.com.repository.user.UserRepInt;
+import company.com.service.user.UserServiceInt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class UserService implements UserServiceInt {
+    @Autowired
+    UserRepInt userRep;
     private static UserService userService;
-    private UserRep userRep=UserRepFactory.getUserRep();
+    //private UserRep userRep=UserRepFactory.getUserRep();
 
     private UserService() {
     }
@@ -22,26 +27,27 @@ public class UserService implements UserServiceInt {
 
     @Override
     public User create(User user) {
-        return userRep.create(user);
+        return userRep.save(user);
     }
 
     @Override
     public User update(User user) {
-        return userRep.update(user);
+        return userRep.save(user);
     }
 
     @Override
     public void delete(String id) {
-        userRep.delete(id);
+        userRep.deleteById(id);
     }
 
     @Override
     public User read(String id) {
-        return userRep.read(id);
+        Optional<User>result=userRep.findById(id);
+        return result.orElse(null);
     }
 
     @Override
-    public ArrayList<User> readAlll() {
-        return userRep.readAll();
+    public List<User> readAll() {
+        return userRep.findAll();
     }
 }

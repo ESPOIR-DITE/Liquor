@@ -1,11 +1,8 @@
 package company.com.repository.item.impl.beverage.alcohol.impl;
 
-import company.com.domain.item.impl.beverage.alcohol.impl.Vine;
-import company.com.repository.item.impl.beverage.alcohol.VineInt;
 
-import java.util.ArrayList;
 
-public class VineRep implements VineInt {
+public class VineRep{}/* implements VineInt {
     private static VineRep vine=null;
     private ArrayList<Vine>mydb= new ArrayList<>();
 
@@ -64,3 +61,4 @@ public class VineRep implements VineInt {
                 .orElse(null);
     }
 }
+*/

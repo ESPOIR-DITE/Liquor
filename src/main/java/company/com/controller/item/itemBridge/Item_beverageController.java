@@ -4,6 +4,7 @@ import company.com.controller.ControllerInt;
 import company.com.domain.item.impl.ItemBridge.Item_beverage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Item_beverageController implements ControllerInt<Item_beverage,String> {
 
@@ -28,7 +29,7 @@ public class Item_beverageController implements ControllerInt<Item_beverage,Stri
     }
 
     @Override
-    public ArrayList<Item_beverage> readAll() {
+    public List<Item_beverage> readAll() {
         return null;
     }
 }

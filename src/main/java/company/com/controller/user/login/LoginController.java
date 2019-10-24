@@ -41,6 +41,6 @@ public class LoginController implements ControllerInt<Login,String> {
     @GetMapping("/reads")
     @Override
     public List<Login> readAll() {
-        return loginService.readAlll();
+        return loginService.readAll();
     }
 }

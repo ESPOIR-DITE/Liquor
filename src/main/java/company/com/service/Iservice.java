@@ -7,5 +7,5 @@ public interface Iservice <T,t> {
     T update(T t);
     void delete(String id);
     T read(String id);
-    List<T> readAlll();
+    List<T> readAll();
 }

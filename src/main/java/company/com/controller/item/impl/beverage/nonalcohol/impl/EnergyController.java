@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import company.com.service.item.impl.beverage.nonalcohol.impl.EnergyDrinkService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/energydrink")
@@ -41,7 +42,7 @@ public class EnergyController implements ControllerInt<EnergyDrink,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<EnergyDrink> readAll() {
-        return energyDrinkService.readAlll();
+    public List<EnergyDrink> readAll() {
+        return energyDrinkService.readAll();
     }
 }

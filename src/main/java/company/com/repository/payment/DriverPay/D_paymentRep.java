@@ -1,11 +1,7 @@
 package company.com.repository.payment.DriverPay;
 
-import company.com.domain.driverPay.D_pay;
-import company.com.repository.payment.D_payment;
 
-import java.util.ArrayList;
-
-public class D_paymentRep implements D_payment {
+public class D_paymentRep{}/* implements D_payment {
     private static D_paymentRep d_paymentRep;
     private ArrayList<D_pay> mydb=new ArrayList<>();
 
@@ -69,3 +65,4 @@ public class D_paymentRep implements D_payment {
                 .orElse(null);
     }
 }
+*/

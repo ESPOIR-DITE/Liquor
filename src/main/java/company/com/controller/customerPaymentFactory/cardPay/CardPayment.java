@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import company.com.service.payment.customerPay.impl.CardRepService;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/card")
 public class CardPayment implements ControllerInt<Card,String> {
@@ -38,7 +40,7 @@ public class CardPayment implements ControllerInt<Card,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<Card> readAll() {
-        return cardRepService.readAlll();
+    public List<Card> readAll() {
+        return cardRepService.readAll();
     }
 }

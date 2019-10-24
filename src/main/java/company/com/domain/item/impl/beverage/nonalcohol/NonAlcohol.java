@@ -1,6 +1,11 @@
 package company.com.domain.item.impl.beverage.nonalcohol;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class NonAlcohol {
+    @Id
     private String nonAlcohol_id;
     private String ContainerType;
     private String naturelPercentage;

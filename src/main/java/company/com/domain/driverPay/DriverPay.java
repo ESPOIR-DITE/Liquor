@@ -1,6 +1,11 @@
 package company.com.domain.driverPay;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class DriverPay {
+    @Id
     private String payCode;
     private int numberOfOrder;
     private int distance;

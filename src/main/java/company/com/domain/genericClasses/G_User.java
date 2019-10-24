@@ -7,8 +7,39 @@ public class G_User {
     private String SurName;
     private String UserType;
     private String password;
+    private String Address;
+    private String phoner_Number;
+    private String description;
 
     private G_User() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getPhoner_Number() {
+        return phoner_Number;
+    }
+
+    public void setPhoner_Number(String phoner_Number) {
+        this.phoner_Number = phoner_Number;
     }
 
     public String getStat() {
@@ -63,13 +94,16 @@ public class G_User {
     public String toString() {
         return "G_User{" +
                 "stat='" + stat + '\'' +
-                ", id='" + email + '\'' +
+                ", email='" + email + '\'' +
                 ", Name='" + Name + '\'' +
                 ", SurName='" + SurName + '\'' +
                 ", UserType='" + UserType + '\'' +
                 ", password='" + password + '\'' +
+                ", Address='" + Address + '\'' +
+                ", phoner_Number='" + phoner_Number + '\'' +
                 '}';
     }
+
     public static class Builder{
         private String stat;
         private String email;
@@ -77,6 +111,10 @@ public class G_User {
         private String SurName;
         private String UserType;
         private String password;
+        private String Address;
+        private String phoner_Number;
+        private String description;
+
 
         public Builder(String email){
             this.email=email;
@@ -85,8 +123,20 @@ public class G_User {
             this.Name=name;
             return this;
         }
+        public Builder buildDescription(String description){
+            this.description=description;
+            return this;
+        }
+        public Builder buildAddress(String Address){
+            this.Address=Address;
+            return this;
+        }
         public Builder buildSuName(String surName){
             this.SurName=surName;
+            return this;
+        }
+        public Builder phoner_Number(String phoner_Number){
+            this.phoner_Number=phoner_Number;
             return this;
         }
         public Builder buildUserTpe(String userType){
@@ -110,6 +160,8 @@ public class G_User {
             g.SurName=this.SurName;
             g.password=this.password;
             g.UserType=this.UserType;
+            g.phoner_Number=this.phoner_Number;
+            g.Address=this.Address;
             return g;
         }
     }

@@ -1,12 +1,10 @@
 package company.com.service.item.impl.beverage.alcohol.alcoholBridge;
 
 import company.com.domain.item.impl.beverage.alcohol.alcoholBridge.AlcoholItem;
-import company.com.factory.repository.item.impl.beverage.alcohol.impl.AlcoholItemFactory;
 import company.com.repository.item.impl.beverage.alcohol.AlcoholItemInt;
+import company.com.service.item.impl.beverage.alcohol.AlcoholItemIntS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import company.com.repository.item.impl.beverage.alcohol.alcoholBridge.AlcoholItemRepository;
-import company.com.service.item.impl.beverage.alcohol.AlcoholItemIntS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +62,7 @@ public class AlcoholItemService implements AlcoholItemIntS {
     }
 
     @Override
-    public List<AlcoholItem> readAlll() {
+    public List<AlcoholItem> readAll() {
         return alcoholItemInt.findAll();
     }
 }

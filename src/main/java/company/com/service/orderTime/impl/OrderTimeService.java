@@ -1,17 +1,22 @@
 package company.com.service.orderTime.impl;
 
+
 import company.com.domain.orderTiming.OrderTiming;
-import company.com.factory.repository.OrderTimeRepFactory;
-import org.springframework.stereotype.Component;
-import company.com.repository.orderTime.impl.OrderTimeRep;
+import company.com.repository.orderTime.OrderTimeRepInt;
 import company.com.service.orderTime.OrderTimeInt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-@Component
+@Service
 public class OrderTimeService implements OrderTimeInt {
+    @Autowired
+    OrderTimeRepInt orderTimeRepInt;
     private static OrderTimeService orderTimeService;
-    private OrderTimeRep timeRep= OrderTimeRepFactory.getOrderTimeRep();
+
 
     private OrderTimeService() {
     }
@@ -24,26 +29,27 @@ public class OrderTimeService implements OrderTimeInt {
 
     @Override
     public OrderTiming create(OrderTiming orderTiming) {
-        return timeRep.create(orderTiming);
+        return orderTimeRepInt.save(orderTiming);
     }
 
     @Override
     public OrderTiming update(OrderTiming orderTiming) {
-        return timeRep.update(orderTiming);
+        return orderTimeRepInt.save(orderTiming);
     }
 
     @Override
     public void delete(String id) {
-        timeRep.delete(id);
+        orderTimeRepInt.deleteById(id);
     }
 
     @Override
     public OrderTiming read(String id) {
-        return timeRep.read(id);
+        Optional<OrderTiming> result=orderTimeRepInt.findById(id);
+        return result.orElse(null);
     }
 
     @Override
-    public ArrayList<OrderTiming> readAlll() {
-        return timeRep.readAll();
+    public List<OrderTiming> readAll() {
+        return orderTimeRepInt.findAll();
     }
 }

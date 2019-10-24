@@ -1,18 +1,16 @@
 package company.com.service.itemTrensaction;
 
+
 import company.com.domain.itemTrensaction.ItemStock;
-import company.com.factory.repository.ItemStockRepFactory;
 import company.com.repository.ItemTrensaction.ItemStockRepInt;
-import company.com.repository.ItemTrensaction.impl.ItemStockRep;
 import company.com.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class ItemStockService implements Iservice<ItemStock,String> {
     @Autowired
     ItemStockRepInt itemStockRep;
@@ -29,7 +27,7 @@ public class ItemStockService implements Iservice<ItemStock,String> {
     }
     @Override
     public ItemStock update(ItemStock itemStock) {
-        Optional<ItemStock>result=itemStockRep.findById(itemStock.getStockId());
+        Optional<ItemStock> result=itemStockRep.findById(itemStock.getStockId());
         if(result!=null){
             delete(itemStock.getStockId());
             result.orElse(null);
@@ -52,7 +50,7 @@ public class ItemStockService implements Iservice<ItemStock,String> {
     }
 
     @Override
-    public List<ItemStock> readAlll() {
+    public List<ItemStock> readAll() {
         return itemStockRep.findAll();
     }
     public void sellItem(String itemId,int number){

@@ -1,16 +1,18 @@
 package company.com.service.item.impl.impl;
 
 import company.com.domain.item.impl.beverage.alcohol.Alcohol;
-import company.com.factory.repository.item.impl.impl.AlcoholRepFactory;
-import org.springframework.stereotype.Component;
-import company.com.repository.item.impl.impl.AlcoholRep;
+import company.com.repository.item.AlcoholRepInt;
 import company.com.service.item.AlcoholInt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-@Component
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class AlcoholService implements AlcoholInt {
-
-    private AlcoholRep alco= AlcoholRepFactory.getAlcoholRep();
+    @Autowired
+    private AlcoholRepInt alcoholRepInt;
     private static AlcoholService alcoholRep=null;
 
     private AlcoholService() {
@@ -20,29 +22,28 @@ public class AlcoholService implements AlcoholInt {
             alcoholRep=new AlcoholService();
         }return alcoholRep;
     }
-
     @Override
     public Alcohol create(Alcohol alcohol) {
-        return alco.create(alcohol);
+        return alcoholRepInt.save(alcohol);
     }
 
     @Override
     public Alcohol update(Alcohol alcohol) {
-        return alco.update(alcohol);
+        return alcoholRepInt.save(alcohol);
     }
 
     @Override
     public void delete(String id) {
-        alco.delete(id);
+        alcoholRepInt.deleteById(id);
     }
 
     @Override
     public Alcohol read(String id) {
-        return alco.read(id);
+        Optional<Alcohol> result=alcoholRepInt.findById(id);
+        return result.orElse(null);
     }
-
     @Override
-    public ArrayList<Alcohol> readAlll() {
-        return alco.readAll();
+    public List<Alcohol> readAll() {
+        return alcoholRepInt.findAll();
     }
 }

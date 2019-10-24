@@ -11,6 +11,7 @@ import company.com.service.item.impl.impl.BeverageService;
 import company.com.service.item.impl.impl.NonAlcholService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/nonalcohol")
@@ -51,7 +52,7 @@ public class NonAlcoholController implements ControllerInt<NonAlcohol,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<NonAlcohol> readAll() {
-        return nonAlcholService.readAlll();
+    public List<NonAlcohol> readAll() {
+        return nonAlcholService.readAll();
     }
 }

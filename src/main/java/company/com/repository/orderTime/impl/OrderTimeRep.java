@@ -1,12 +1,7 @@
 package company.com.repository.orderTime.impl;
 
 
-import company.com.domain.orderTiming.OrderTiming;
-import company.com.repository.orderTime.OrderTimeInt;
-
-import java.util.ArrayList;
-
-public class OrderTimeRep implements OrderTimeInt {
+public class OrderTimeRep{}/* implements OrderTimeInt {
     private static OrderTimeRep orderTimeRep=null;
     private ArrayList<OrderTiming>mydb =new ArrayList<>();
 
@@ -66,3 +61,4 @@ public class OrderTimeRep implements OrderTimeInt {
                 .orElse(null);
     }
 }
+*/

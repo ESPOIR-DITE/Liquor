@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.impl;
 
-import company.com.domain.item.impl.beverage.Beverage;
-import company.com.repository.item.BevergeInt;
-
-import java.util.ArrayList;
-
-public class BeverageRep implements BevergeInt {
+public class BeverageRep{}/* implements BevergeInt {
     private ArrayList<Beverage>mydb=new ArrayList<>();
     private static BeverageRep beverageRep;
 
@@ -75,3 +70,4 @@ public class BeverageRep implements BevergeInt {
                 .orElse(null);
     }
 }
+*/

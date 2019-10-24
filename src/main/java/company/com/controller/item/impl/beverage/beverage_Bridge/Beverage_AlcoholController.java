@@ -8,6 +8,7 @@ import company.com.service.item.impl.beverage.beverage_Bridge.impl.Beverage_Alco
 import company.com.service.item.impl.impl.ItemService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * a bridge class between beverage and all the Alcohole Item
@@ -52,7 +53,7 @@ public class Beverage_AlcoholController implements ControllerInt<Beverage_Alcoho
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<Beverage_Alcohol> readAll() {
-        return beverage_alcoholServ.readAlll();
+    public List<Beverage_Alcohol> readAll() {
+        return beverage_alcoholServ.readAll();
     }
 }

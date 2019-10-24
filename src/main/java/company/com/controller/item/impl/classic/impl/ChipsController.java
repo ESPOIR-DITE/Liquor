@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import company.com.service.item.impl.classic.impl.ChipsService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/chips")
@@ -35,7 +36,7 @@ public class ChipsController implements ControllerInt<Chips,String> {
     }
     @GetMapping("/reads")
     @Override
-    public ArrayList<Chips> readAll() {
-        return chipsService.readAlll();
+    public List<Chips> readAll() {
+        return chipsService.readAll();
     }
 }

@@ -1,6 +1,11 @@
 package company.com.domain.item.impl.classic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Classic {
+    @Id
     private String clissic_id;
     private String color;
     private String item_id;

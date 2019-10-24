@@ -1,12 +1,7 @@
 package company.com.repository.item.impl.beverage.beverage_Bridge.impl;
 
-import company.com.domain.item.impl.beverage.beverage_Bridge.Beverage_NonAlcohol;
-import company.com.factory.domain.item.impl.beverage.beverage_Bridge.Beverage_NonalcolicFactory;
-import company.com.repository.item.impl.beverage.beverage_Bridge.Beverage_NonalcoholInt;
 
-import java.util.ArrayList;
-
-public class Beverage_NonalcoholRep implements Beverage_NonalcoholInt {
+public class Beverage_NonalcoholRep{}/* implements Beverage_NonalcoholInt {
     private static Beverage_NonalcoholRep beverage_alcoholRep;
     private ArrayList<Beverage_NonAlcohol> mydb =new ArrayList<>();
 
@@ -69,6 +64,6 @@ public class Beverage_NonalcoholRep implements Beverage_NonalcoholInt {
                 .findAny()
                 .orElse(null);
     }
-}
+}*/
 
 

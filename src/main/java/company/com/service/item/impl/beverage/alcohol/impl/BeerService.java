@@ -1,32 +1,22 @@
 package company.com.service.item.impl.beverage.alcohol.impl;
 
 import company.com.domain.item.impl.beverage.alcohol.impl.Beer;
-import company.com.factory.repository.item.impl.beverage.alcohol.impl.BeerRepFactory;
-import org.springframework.stereotype.Component;
-import company.com.repository.item.impl.beverage.alcohol.impl.BeerRep;
+import company.com.repository.item.impl.beverage.alcohol.BeerRepInt;
 import company.com.service.item.impl.beverage.alcohol.BeerInt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.ArrayList;
-@Component
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class BeerService implements BeerInt {
+    @Autowired
+    BeerRepInt beerRepInt;
 
-    /**String url = "jdbc:h2:~/LDS_DB";
-    String user = "";
-    String pwds = "";
-    Connection conn;*/
     private static BeerService beerService=null;
-    private BeerRep beerRep= BeerRepFactory.getBeerRep();
-    private BeerService() {
-       /** try {
-            conn = DriverManager.getConnection(url, user, pwds);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-    }
+    //private BeerRep beerRep= BeerRepFactory.getBeerRep();
+    private BeerService() { }
     public static BeerService getBeerRep(){
         if(beerService==null){
             beerService=new BeerService();
@@ -36,30 +26,36 @@ public class BeerService implements BeerInt {
 
     @Override
     public Beer create(Beer beer) {
-        return beerRep.create(beer);
+        return beerRepInt.save(beer);
     }
 
     @Override
     public Beer update(Beer beer) {
-        return beerRep.update(beer);
+        return beerRepInt.save(beer);
     }
 
     @Override
     public void delete(String id) {
-
-        beerRep.delete(id);
+    Optional<Beer> result=beerRepInt.findById(id);
+        beerRepInt.deleteById(id);
     }
 
     @Override
     public Beer read(String id) {
-        return beerRep.read(id);
+        Optional<Beer> result=beerRepInt.findById(id);
+        return result.orElse(null);
     }
 
     @Override
-    public ArrayList<Beer> readAlll() {
-        return beerRep.readAll();
+    public List<Beer> readAll() {
+        return beerRepInt.findAll();
     }
-    public void selItem(String id,int number){
-        beerRep.selItem(id,number);
+    public Beer selItem(String name,String size){
+        List<Beer>result=beerRepInt.findAll();
+        for(Beer beer:result){
+            if(beer.getName().equals(name)&&beer.getSize().equals(size))
+                return beer;
+        }
+        return null;
     }
 }

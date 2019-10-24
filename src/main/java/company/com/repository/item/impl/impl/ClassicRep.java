@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.impl;
 
-import company.com.domain.item.impl.classic.Classic;
-import company.com.repository.item.ClassicInt;
-
-import java.util.ArrayList;
-
-public class ClassicRep implements ClassicInt {
+public class ClassicRep{}/* implements ClassicInt {
     private ArrayList<Classic> mydb=new ArrayList<>();
     private static ClassicRep classicRep=null;
 
@@ -69,3 +64,4 @@ public class ClassicRep implements ClassicInt {
                 .orElse(null);
     }
 }
+*/

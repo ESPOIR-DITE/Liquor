@@ -1,12 +1,6 @@
 package company.com.repository.item.impl.classic.impl;
 
-
-import company.com.domain.item.impl.classic.impl.Chips;
-import company.com.repository.item.impl.classic.ChipsInt;
-
-import java.util.ArrayList;
-
-public class ChipsRep implements ChipsInt {
+public class ChipsRep{}/* implements ChipsInt {
     private static ChipsRep chipsRepl;
     private ArrayList<Chips>mydb=new ArrayList<>();
     private ChipsRep() {
@@ -67,3 +61,4 @@ public class ChipsRep implements ChipsInt {
                 .orElse(null);
     }
 }
+*/

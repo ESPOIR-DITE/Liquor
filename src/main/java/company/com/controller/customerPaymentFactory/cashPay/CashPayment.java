@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import company.com.service.payment.customerPay.impl.CashService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cash")
@@ -38,7 +39,7 @@ public class CashPayment implements ControllerInt<Cash,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<Cash> readAll() {
-        return cashService.readAlll();
+    public List<Cash> readAll() {
+        return cashService.readAll();
     }
 }

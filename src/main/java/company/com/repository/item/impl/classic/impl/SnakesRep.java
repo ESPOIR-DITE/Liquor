@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.classic.impl;
 
-import company.com.domain.item.impl.classic.impl.Snakes;
-import company.com.repository.item.impl.classic.SnakesInt;
-
-import java.util.ArrayList;
-
-public class SnakesRep implements SnakesInt {
+public class SnakesRep{}/* implements SnakesInt {
     private ArrayList<Snakes>mydb=new ArrayList<>();
   private static SnakesRep snakesRep=null;
 
@@ -67,3 +62,4 @@ public class SnakesRep implements SnakesInt {
                 .orElse(null);
     }
 }
+*/

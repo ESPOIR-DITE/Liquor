@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.classic.impl;
 
-import company.com.domain.item.impl.classic.impl.Cigarate;
-import company.com.repository.item.impl.classic.CigarateInt;
-
-import java.util.ArrayList;
-
-public class CigarateRep implements CigarateInt {
+public class CigarateRep{}/* implements CigarateInt {
 
     private static CigarateRep cigarateRep=null;
     private ArrayList<Cigarate>mydb = new ArrayList<>();
@@ -66,3 +61,4 @@ public static CigarateRep getCigarateRep(){
                 .orElse(null);
     }
 }
+*/

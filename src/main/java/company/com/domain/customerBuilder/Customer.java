@@ -6,18 +6,37 @@ import javax.persistence.Id;
 @Entity
     public class Customer {
     @Id
-    private String customer_number;
+    private String email;
+    private String name;
+    private String surname;
     private String description;
 
     private Customer() {
 
     }
-
-
-    public String getCustomer_number() {
-        return customer_number;
+    public String getEmail() {
+        return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
     public String getDescription() {
         return description;
     }
@@ -26,39 +45,46 @@ import javax.persistence.Id;
         this.description = description;
     }
 
-    public void setCustomer_number(String customer_number) {
-        this.customer_number = customer_number;
-    }
-
-
-
     @Override
     public String toString() {
-        return "CustomerProduct" +
-                "\ncustomer numb:" + customer_number +
-                "\nname:         " + description ;
-
+        return "Customer{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     public static class Builder {
+        private String email;
+        private String name;
+        private String surname;
         private String description;
-        private String customer_number;
 
 
+        public Builder(String email){
+            this.email=email;
+        }
 
         public Builder buildDescription(String description) {
             this.description = description;
             return this;
         }
+        public Builder buildSurName (String surname) {
+            this.surname = surname;
+            return this;
+        }
 
-        public Builder (String customer_number) {
-            this.customer_number = customer_number;
-
+        public Builder buildName (String name) {
+            this.name = name;
+            return this;
         }
 
         public Customer build() {
             Customer customerProduct = new Customer();
-            customerProduct.customer_number = this.customer_number;
+            customerProduct.surname = this.surname;
+            customerProduct.name = this.name;
+            customerProduct.email = this.email;
             customerProduct.description = this.description;
             return customerProduct;
         }

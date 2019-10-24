@@ -11,6 +11,7 @@ import company.com.service.item.impl.beverage.alcohol.impl.VineService;
 import company.com.service.item.impl.impl.AlcoholService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/vine")
@@ -49,7 +50,7 @@ public class VineController implements ControllerInt<Vine,String> {
 
     @GetMapping("/reads")
     @Override
-    public ArrayList<Vine> readAll() {
-        return vineService.readAlll();
+    public List<Vine> readAll() {
+        return vineService.readAll();
     }
 }

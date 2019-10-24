@@ -1,11 +1,6 @@
 package company.com.repository.item.impl.beverage.nonalcohol.impl;
 
-import company.com.domain.item.impl.beverage.nonalcohol.impl.EnergyDrink;
-import company.com.repository.item.impl.beverage.nonalcohol.EnergyDrinkInt;
-
-import java.util.ArrayList;
-
-public class EnergyDrinkRep implements EnergyDrinkInt {
+public class EnergyDrinkRep{}/* implements EnergyDrinkInt {
 
     private static EnergyDrinkRep energyDrinkRep=null;
     private ArrayList<EnergyDrink>mydb=new ArrayList<>();
@@ -67,3 +62,4 @@ public static EnergyDrinkRep getEnergyDrinkRep(){
                 .orElse(null);
     }
 }
+*/

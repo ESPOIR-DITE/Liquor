@@ -1,12 +1,9 @@
 package company.com.repository.payment.customerPay.impl;
 
 
-import company.com.domain.customerPayment.impl.Cash;
-import company.com.repository.payment.customerPay.CashInt;
 
-import java.util.ArrayList;
 
-public class CashRep implements CashInt {
+public class CashRep {}/*implements CashInt {
 //    private String url="jdbc:mysql://localhost:3306/delivery_system?autoReconnect=true&useSSL=false";
 //    private String user="root";
 //    private String password="";
@@ -81,3 +78,4 @@ public class CashRep implements CashInt {
                 .orElse(null);
     }
 }
+*/

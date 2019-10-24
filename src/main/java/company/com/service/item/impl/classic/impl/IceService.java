@@ -1,17 +1,21 @@
 package company.com.service.item.impl.classic.impl;
 
+
 import company.com.domain.item.impl.classic.impl.Ice;
-import company.com.factory.repository.item.impl.classic.impl.IceRepFactory;
+import company.com.repository.item.impl.classic.IceRepInt;
 import company.com.repository.item.impl.classic.impl.IceRep;
 import company.com.service.item.impl.classic.IceInt;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-@Component
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class IceService implements IceInt {
-
+@Autowired
+IceRepInt iceRepInt;
     private static IceService iceRep;
-private IceRep iceR= IceRepFactory.getIceRep();
     private IceService() {
     }
 public static IceService getIceRep(){
@@ -23,26 +27,36 @@ public static IceService getIceRep(){
 
     @Override
     public Ice create(Ice ice) {
-        return iceR.create(ice);
+        return iceRepInt.save(ice);
     }
 
     @Override
     public Ice update(Ice ice) {
-        return iceR.update(ice);
+        return iceRepInt.save(ice);
     }
 
     @Override
     public void delete(String id) {
-        iceR.delete(id);
+        iceRepInt.deleteById(id);
+
     }
 
     @Override
     public Ice read(String id) {
-        return iceR.read(id);
+        Optional<Ice> result=iceRepInt.findById(id);
+        return result.orElse(null);
     }
 
     @Override
-    public ArrayList<Ice> readAlll() {
-        return iceR.readAll();
+    public List<Ice> readAll() {
+        return iceRepInt.findAll();
+    }
+    public Ice buyItem(String name){
+        List<Ice>result=iceRepInt.findAll();
+        for(Ice ice:result){
+            if(ice.getName().equals(name)){
+                return ice;
+            }
+        }return null;
     }
 }

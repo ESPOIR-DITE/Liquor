@@ -1,11 +1,8 @@
 package company.com.repository.payment.customerPay.impl;
 
-import company.com.domain.customerPayment.CustomerPay;
-import company.com.repository.payment.customerPay.CustomerPayInt;
 
-import java.util.ArrayList;
 
-public class CustomerPayRep implements CustomerPayInt {
+public class CustomerPayRep{}/* implements CustomerPayInt {
     private static CustomerPayRep customerPayRep=null;
     private ArrayList<CustomerPay>mydb=new ArrayList<>();
 
@@ -74,10 +71,11 @@ public class CustomerPayRep implements CustomerPayInt {
      * @param id
      * @return
      */
-    public CustomerPay findCustomerPay(String id){
+   /* public CustomerPay findCustomerPay(String id){
         return mydb.stream()
                 .filter(C ->C.getCustomerNumber().equals(id))
                 .findAny()
                 .orElse(null);
     }
 }
+*/

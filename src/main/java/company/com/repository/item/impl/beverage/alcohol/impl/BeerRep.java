@@ -1,28 +1,20 @@
 package company.com.repository.item.impl.beverage.alcohol.impl;
 
-import company.com.domain.item.impl.beverage.alcohol.impl.Beer;
-import company.com.factory.domain.item.impl.beverage.alcohol.impl.BeerFactory;
-import company.com.repository.item.impl.beverage.alcohol.BeerInt;
+public class BeerRep{}
+/* implements BeerInt {
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-public class BeerRep implements BeerInt {
-
-   /** String url = "jdbc:h2:~/LDS_DB";
+    String url = "jdbc:h2:~/LDS_DB";
     String user = "";
     String pwds = "";
-    Connection conn;*/
+    Connection conn;
     private static BeerRep beerRep=null;
     private ArrayList<Beer> mydb=new ArrayList<>();
     private BeerRep() {
-       /* try {
+        try {
             conn = DriverManager.getConnection(url, user, pwds);
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
 
     }
     public static BeerRep getBeerRep(){
@@ -83,3 +75,4 @@ public class BeerRep implements BeerInt {
                 .orElse(null);
     }
 }
+*/

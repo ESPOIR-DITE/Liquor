@@ -1,6 +1,11 @@
 package company.com.domain.item;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Item {
+    @Id
     private String id;
     private String itemName;
     private String itemBranch;

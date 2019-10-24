@@ -1,17 +1,20 @@
 package company.com.service.item.impl.beverage.alcohol.impl;
-
 import company.com.domain.item.impl.beverage.alcohol.impl.Vine;
-import company.com.factory.repository.item.impl.beverage.alcohol.impl.VineRepFactory;
-import company.com.repository.item.impl.beverage.alcohol.impl.VineRep;
+import company.com.repository.item.impl.beverage.alcohol.VineRepInt;
 import company.com.service.item.impl.beverage.alcohol.VineInt;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-@Component
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class VineService implements VineInt {
+    @Autowired
+    private VineRepInt vineRepInt;
     private static VineService vine=null;
 
-    private VineRep vineRep= VineRepFactory.getVineRep();
+
     private VineService() {
     }
     public static VineService getVine(){
@@ -23,26 +26,36 @@ public class VineService implements VineInt {
 
     @Override
     public Vine create(Vine vine) {
-        return vineRep.create(vine);
+        return vineRepInt.save(vine);
     }
 
     @Override
     public Vine update(Vine vine) {
-        return vineRep.update(vine);
+        return vineRepInt.save(vine);
     }
 
     @Override
     public void delete(String id) {
-        vineRep.delete(id);
+        vineRepInt.deleteById(id);
     }
 
     @Override
     public Vine read(String id) {
-        return null;
+        Optional<Vine> result=vineRepInt.findById(id);
+        return result.orElse(null);
     }
 
     @Override
-    public ArrayList<Vine> readAlll() {
-        return vineRep.readAll();
+    public List<Vine> readAll() {
+        return vineRepInt.findAll();
+    }
+    public Vine buyItem(String itemName){
+        List<Vine> result=vineRepInt.findAll();
+        for(Vine vine: result){
+            if(vine.getName().equals(itemName)){
+                return vine;
+            }
+        }
+        return null;
     }
 }
